@@ -134,8 +134,24 @@ class ArbolBinarioBusqueda{
 			
 			
 		}
-		System.out.println();
+		
 	}
+	
+public void buscar(Nodo nodoRaiz, int dato) {
+		
+		if(!(nodoRaiz==null)) {
+			buscar(nodoRaiz.getIzquierdo(),dato);
+			if(nodoRaiz.getDato()==dato) {
+				
+				System.out.println("El dato ha sido encontrado");
+			}
+			buscar(nodoRaiz.getDerecho(),dato);
+		}
+		
+		
+}
+	
+	
 	int mayor;
 	int menor;
 	int z;
@@ -306,9 +322,12 @@ public class PruebaArbolBinarioBusqueda {
 		case 2: System.out.println("Ingresa el dato a eliminar");
 				dato = Correcion.validacion();
 				abb.eliminarElemento(dato);break;
-		case 3: abb.recorridoPreorden(abb.raiz);break;
-		case 4: abb.recorridoEnorden(abb.raiz);break;
-		case 5: abb.recorridoPostorden(abb.raiz);break;
+		case 3: abb.recorridoPreorden(abb.raiz);
+				System.out.println();break;
+		case 4: abb.recorridoEnorden(abb.raiz);
+				System.out.println();break;
+		case 5: abb.recorridoPostorden(abb.raiz);
+				System.out.println();break;
 		case 6: System.out.println("El Dato MAYOR es:");
 				abb.menor(abb.raiz, 6);
 				abb.mayorMenor(abb.raiz, 6);break;
@@ -316,9 +335,9 @@ public class PruebaArbolBinarioBusqueda {
 				abb.menor(abb.raiz, 7);
 				abb.mayorMenor(abb.raiz,7);break;
 		case 8:
-			
-			
-			break;
+				System.out.println("Ingrese el dato a buscar");
+				dato = Correcion.validacion();
+				abb.buscar(abb.raiz, dato);break;
 		case 9: System.out.println("Gracias por usar el programa!");break;
 		}
 	}while(opcion != 9);
